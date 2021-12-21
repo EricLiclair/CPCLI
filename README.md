@@ -1,3 +1,7 @@
+[![issues](https://img.shields.io/github/issues/ericliclair/CPCLI?label=Issues&style=flat-square)](https://github.com/EricLiclair/CPCLI/issues)
+[![license](https://img.shields.io/github/license/EricLiclair/CPCLI)](https://github.com/EricLiclair/CPCLI/blob/main/LICENSE)
+
+
 # CPCLI
 
 A command line tool to organize your competitive programming folders and create `.cpp` file from a template, compile, and execute them; right from your terminal.
