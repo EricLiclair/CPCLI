@@ -12,12 +12,18 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install CPCLI.
 
 ###### Step 1: 
 Clone the repo
+
+```bash
+git clone https://github.com/EricLiclair/CPCLI.git
+```
+
 ###### Step 2:
 In the root directory (where `setup.py` is there) use the following command
 
 ```bash
 pip install .
 ```
+
 ## Installation (From PyPI)
 The package is not yet uploaded to PyPI. Once it's up there it will be installed using the python package manager pip.
 
