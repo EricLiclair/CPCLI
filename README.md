@@ -1,6 +1,6 @@
 [![issues](https://img.shields.io/github/issues/ericliclair/CPCLI?label=Issues&style=flat-square)](https://github.com/EricLiclair/CPCLI/issues)
 [![license](https://img.shields.io/github/license/EricLiclair/CPCLI?label=License&style=flat-square)](https://github.com/EricLiclair/CPCLI/blob/main/LICENSE)
-
+[![working](https://img.shields.io/static/v1?label=Working&message=False&color=red)]
 
 # CPCLI
 
