@@ -1,5 +1,5 @@
 [![issues](https://img.shields.io/github/issues/ericliclair/CPCLI?label=Issues&style=flat-square)](https://github.com/EricLiclair/CPCLI/issues)
-[![license](https://img.shields.io/github/license/EricLiclair/CPCLI)](https://github.com/EricLiclair/CPCLI/blob/main/LICENSE)
+[![license](https://img.shields.io/github/license/EricLiclair/CPCLI?style=flat-square)](https://github.com/EricLiclair/CPCLI/blob/main/LICENSE)
 
 
 # CPCLI
