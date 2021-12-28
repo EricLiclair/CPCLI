@@ -34,13 +34,11 @@ setup(
         'Topic :: Software Development :: User Interfaces',
         'Topic :: Software Development :: '
     ],
-    data_files=[('templates', 'templates.cpp')],
     keywords='click, prompt-toolkit, cli, command-line, commandline, command-line-interface, python-inquiry, inquirer',
     packages=find_packages(exclude=['docs', 'tests*']),
     include_package_data=True,
     install_requires=install_requires,
     dependency_links=dependency_links,
     author_email='eric.liclair@gmail.com',
-    # download_url='',
     url='https://github.com/EricLiclair/CPCLI.git',
 )
