@@ -5,6 +5,6 @@ using namespace std;
 
 int main()
 {
-    cout << "This is a template created by CPCLI";
+    cout << "This is a template created by CPCLI\n";
     return 0;
 }

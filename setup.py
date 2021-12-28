@@ -34,7 +34,7 @@ setup(
         'Topic :: Software Development :: User Interfaces',
         'Topic :: Software Development :: '
     ],
-    data_files=[('', 'templates/templates.cpp')],
+    data_files=[('templates', 'templates.cpp')],
     keywords='click, prompt-toolkit, cli, command-line, commandline, command-line-interface, python-inquiry, inquirer',
     packages=find_packages(exclude=['docs', 'tests*']),
     include_package_data=True,
