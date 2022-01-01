@@ -10,6 +10,11 @@ template_path = '/templates/template.cpp'
 app = Typer()
 
 
+def _directory_exists(file_name: str) -> bool:
+    sub_directories = list(os.walk('.'))[0][1]
+    return file_name in sub_directories
+
+
 def _create_file_from_template(file_name: str) -> None:
     template_file_path = this_dir + template_path
     os.system(f'mkdir {file_name}')
@@ -21,6 +26,13 @@ def _run_executable_by_file_name(file_name: str) -> None:
         f'g++ {file_name}/{file_name}.cpp -o {file_name}/output.exe')
     os.system(f'{file_name}/output.exe')
     pass
+
+
+def _delete_directory(file_name: str) -> None:
+    if _directory_exists(file_name):
+        os.system(f'rm -rf {file_name}/')
+    else:
+        print(f'no directory named {file_name} found')
 
 
 def clean_file_name(file_name: str) -> str:
@@ -45,6 +57,16 @@ def run(file_name: str):
     file_name = clean_file_name(file_name)
     _run_executable_by_file_name(file_name)
     pass
+
+
+@app.command()
+def delete(file_name: str):
+    """
+    Removes the folder along with the contents inside it
+    Warning! uses force delete
+    """
+    file_name = clean_file_name(file_name)
+    _delete_directory(file_name)
 
 
 def cpcli():
