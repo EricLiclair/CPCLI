@@ -34,7 +34,7 @@ def _delete_directory(file_name: str) -> None:
             os.system(f'rm -rf {file_name}/')
         else:
             raise Exception(
-                f"cpcli: cannot access '{file_name}': No such directory exists"
+                f"cpcli: cannot delete '{file_name}': No such directory exists"
             )
     except Exception as err:
         print(err)
