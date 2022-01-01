@@ -5,6 +5,9 @@ using namespace std;
 
 int main()
 {
-    cout << "This is a template created by CPCLI\n";
+    cout << "[Algorithm Name] - Algorithm for [Algorithm Usage]\n"
+         << "Time Complexity - O(1)\n"
+         << "Space Complexity - O(1)\n"
+         << "Ref Link - [LINK]\n";
     return 0;
 }
