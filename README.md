@@ -1,13 +1,11 @@
-[![working](https://img.shields.io/static/v1?label=Working&message=False&color=red&style=flat-square)]()
+[![working](https://img.shields.io/static/v1?label=Working&message=True&color=green&style=flat-square)]()
 [![issues](https://img.shields.io/github/issues/ericliclair/CPCLI?label=Issues&style=flat-square)](https://github.com/EricLiclair/CPCLI/issues)
-[![license](https://img.shields.io/github/license/EricLiclair/CPCLI?label=License&style=flat-square)](https://github.com/EricLiclair/CPCLI/blob/main/LICENSE)
+[![license](https://img.shields.io/github/license/EricLiclair/CPCLI?label=Licens&color=pink&style=flat-square)](https://github.com/EricLiclair/CPCLI/blob/main/LICENSE)
 
 # CPCLI
-
 A command line tool to organize your competitive programming folders and create `.cpp` file from a template, compile, and execute them; right from your terminal.
 
 ## Installation (Local Install)
-
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install CPCLI.
 
 ###### Step 1: 
@@ -18,7 +16,19 @@ git clone https://github.com/EricLiclair/CPCLI.git
 ```
 
 ###### Step 2:
-In the root directory (where `setup.py` is there) use the following command
+Change to root directory
+
+```bash
+cd CPCLI
+```
+
+###### Step 3:
+Run directly or in a virtual environment (make sure you have python >=3.8.10)
+
+```bash
+python setup.py install
+```
+Alternately, you can install it with pip
 
 ```bash
 pip install .
@@ -31,11 +41,29 @@ The package is not yet uploaded to PyPI. Once it's up there it will be installed
 pip install cpcli
 ```
 ## Usage
+```console
+cpcli create <filename>
+```
+This will create a folder named `filename` in the current directory. This folder will further contain a `filename.cpp` file using a predefined template.
+
 
 ```console
-cpcli create main
+cpcli run <filename>
 ```
-This will create a folder named `main` in the current directory. This folder will further contain a `main.cpp` file with a predefined template.
+This will create an executable in the directory `filename` using the `filename\filename.cpp` file and run it.
+
+## Features
+All the input output redirecting commands works fine with the `run` command. For example,
+
+```console
+cpcli run filename < input.txt
+```
+This will execute the output.exe using the input.txt file as input.
+
+```console
+cpcli run filename > output.txt
+```
+This will execute the output.exe and create output.txt with the console output of the execution.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
