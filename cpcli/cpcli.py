@@ -29,10 +29,15 @@ def _run_executable_by_file_name(file_name: str) -> None:
 
 
 def _delete_directory(file_name: str) -> None:
-    if _directory_exists(file_name):
-        os.system(f'rm -rf {file_name}/')
-    else:
-        print(f'no directory named {file_name} found')
+    try:
+        if _directory_exists(file_name):
+            os.system(f'rm -rf {file_name}/')
+        else:
+            raise Exception(
+                f"cpcli: cannot access '{file_name}': No such directory exists"
+            )
+    except Exception as err:
+        print(err)
 
 
 def clean_file_name(file_name: str) -> str:

@@ -52,6 +52,12 @@ cpcli run <filename>
 ```
 This will create an executable in the directory `filename` using the `filename\filename.cpp` file and run it.
 
+
+```console
+cpcli delete <filename>
+```
+This will check if a subdirectory `filename` exists in the directory. If it does, it'll force remove all the content of the dir, else throws an error: `No such directory exists`
+
 ## Features
 All the input output redirecting commands works fine with the `run` command. For example,
 
