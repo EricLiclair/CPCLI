@@ -8,7 +8,6 @@ this_dir, this_filename = os.path.split(__file__)
 # path to template from this_dir
 template_path = '/templates/template.cpp'
 
-
 app = Typer()
 
 
@@ -43,9 +42,12 @@ def _create_file_from_template(file_name: str) -> None:
 
 def _run_executable_by_file_name(file_name: str) -> None:
     _, file_path, output_path = get_paths(file_name=file_name)
-    os.system(
-        f'g++ {file_path} -o {output_path}')
-    os.system(output_path)
+    try:
+        os.system(
+            f'g++ {file_path} -o {output_path}')
+        os.system(output_path)
+    except Exception as err:
+        print(err)
 
 
 def _delete_directory(file_name: str) -> None:
