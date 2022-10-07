@@ -1,4 +1,3 @@
-from fileinput import filename
 from typer import Typer
 import os
 
