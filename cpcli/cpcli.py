@@ -43,7 +43,7 @@ def _delete_directory(file_name: str) -> None:
     try:
         if _directory_exists(file_name):
             shutil.rmtree(file_name)
-            print(f"Deleted sucessfully")
+            print(f"Deleted successfully")
         else:
             raise Exception(
                 f"cpcli: cannot delete '{file_name}': No such directory exists"
