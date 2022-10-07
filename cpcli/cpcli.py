@@ -1,6 +1,7 @@
 from typer import Typer
 import os
 from typing import List
+import shutil
 
 this_dir, this_filename = os.path.split(__file__)
 
@@ -36,13 +37,13 @@ def _run_executable_by_file_name(file_name: str) -> None:
     os.system(
         f'g++ {file_path} -o {output_path}')
     os.system(f'{output_path}')
-    pass
 
 
 def _delete_directory(file_name: str) -> None:
     try:
         if _directory_exists(file_name):
-            os.system(f'rm -rf {file_name}/')
+            shutil.rmtree(file_name)
+            print(f"Deleted successfully")
         else:
             raise Exception(
                 f"cpcli: cannot delete '{file_name}': No such directory exists"
@@ -62,7 +63,6 @@ def create(file_name: str):
     """
     file_name = clean_file_name(file_name)
     _create_file_from_template(file_name)
-    pass
 
 
 @app.command()
@@ -72,7 +72,6 @@ def run(file_name: str):
     """
     file_name = clean_file_name(file_name)
     _run_executable_by_file_name(file_name)
-    pass
 
 
 @app.command()
