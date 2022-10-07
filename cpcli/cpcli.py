@@ -1,3 +1,4 @@
+from fileinput import filename
 from typer import Typer
 import os
 
@@ -22,9 +23,13 @@ def _create_file_from_template(file_name: str) -> None:
 
 
 def _run_executable_by_file_name(file_name: str) -> None:
+    _file_path = os.path.join(file_name, file_name)
+    file_extension = ".cpp"
+    output_path = os.path.join(file_name, "output.exe")
+    file_path = _file_path + file_extension
     os.system(
-        f'g++ {file_name}/{file_name}.cpp -o {file_name}/output.exe')
-    os.system(f'{file_name}/output.exe')
+        f'g++ {file_path} -o {output_path}')
+    os.system(f'{output_path}')
     pass
 
 
