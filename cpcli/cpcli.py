@@ -1,5 +1,6 @@
 from typer import Typer
 import os
+from typing import List
 
 this_dir, this_filename = os.path.split(__file__)
 
@@ -8,6 +9,14 @@ template_path = '/templates/template.cpp'
 
 
 app = Typer()
+
+
+def _get_file_path_and_output_file_path(file_name: str) -> List[str]:
+    _file_path = os.path.join(file_name, file_name)
+    file_extension = ".cpp"
+    output_path = os.path.join(file_name, "output.exe")
+    file_path = _file_path + file_extension
+    return file_path, output_path
 
 
 def _directory_exists(file_name: str) -> bool:
@@ -22,10 +31,8 @@ def _create_file_from_template(file_name: str) -> None:
 
 
 def _run_executable_by_file_name(file_name: str) -> None:
-    _file_path = os.path.join(file_name, file_name)
-    file_extension = ".cpp"
-    output_path = os.path.join(file_name, "output.exe")
-    file_path = _file_path + file_extension
+    file_path, output_path = _get_file_path_and_output_file_path(
+        file_name=file_name)
     os.system(
         f'g++ {file_path} -o {output_path}')
     os.system(f'{output_path}')
