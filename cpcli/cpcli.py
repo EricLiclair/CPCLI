@@ -12,12 +12,15 @@ template_path = '/templates/template.cpp'
 app = Typer()
 
 
-def _get_file_path_and_output_file_path(file_name: str) -> List[str]:
+def get_paths(file_name: str) -> List[str]:
+    dir_path = os.path.join(file_name)
+
     _file_path = os.path.join(file_name, file_name)
     file_extension = ".cpp"
+
     output_path = os.path.join(file_name, "output.exe")
     file_path = _file_path + file_extension
-    return file_path, output_path
+    return dir_path, file_path, output_path
 
 
 def _directory_exists(file_name: str) -> bool:
@@ -27,16 +30,22 @@ def _directory_exists(file_name: str) -> bool:
 
 def _create_file_from_template(file_name: str) -> None:
     template_file_path = this_dir + template_path
-    os.system(f'mkdir {file_name}')
-    os.system(f'cat {template_file_path} > ./{file_name}/{file_name}.cpp')
+    dir_path, file_path, _ = get_paths(file_name)
+    try:
+        os.mkdir(dir_path)
+        shutil.copy(template_file_path, file_path)
+        print("file created succesfully")
+
+    except Exception as err:
+        print(
+            f"cpcli: error in creating file '{file_name}'. {err}")
 
 
 def _run_executable_by_file_name(file_name: str) -> None:
-    file_path, output_path = _get_file_path_and_output_file_path(
-        file_name=file_name)
+    _, file_path, output_path = get_paths(file_name=file_name)
     os.system(
         f'g++ {file_path} -o {output_path}')
-    os.system(f'{output_path}')
+    os.system(output_path)
 
 
 def _delete_directory(file_name: str) -> None:
