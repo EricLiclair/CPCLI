@@ -22,7 +22,7 @@ def get_paths(file_name: str) -> List[str]:
     return dir_path, file_path, output_path
 
 
-def _directory_exists(file_name: str) -> bool:
+def _file_exists(file_name: str) -> bool:
     sub_directories = list(os.walk('.'))[0][1]
     return file_name in sub_directories
 
@@ -30,9 +30,8 @@ def _directory_exists(file_name: str) -> bool:
 def _create_file_from_template(file_name: str) -> None:
     template_file_path = this_dir + template_path
     dir_path, file_path, _ = get_paths(file_name)
-
     try:
-        if _directory_exists(file_name=file_name):
+        if _file_exists(file_name=file_name):
           raise FileExistsError(
               f"cpcli: {file_path} already exists")
         os.mkdir(dir_path)
@@ -61,7 +60,7 @@ def _run_executable_by_file_name(file_name: str) -> None:
 
 def _delete_directory(file_name: str) -> None:
     try:
-        if _directory_exists(file_name):
+        if _file_exists(file_name):
             shutil.rmtree(file_name)
             print(f"Deleted successfully")
         else:
