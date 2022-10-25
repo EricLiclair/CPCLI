@@ -30,10 +30,19 @@ def _directory_exists(file_name: str) -> bool:
 def _create_file_from_template(file_name: str) -> None:
     template_file_path = this_dir + template_path
     dir_path, file_path, _ = get_paths(file_name)
+
     try:
+        if _directory_exists(file_name=file_name):
+          raise FileExistsError(
+              f"cpcli: {file_path} already exists")
         os.mkdir(dir_path)
         shutil.copy(template_file_path, file_path)
         print("file created succesfully")
+        return file_path
+
+    except FileExistsError as err:
+      print(
+          f"cpcli: Cannot create file. {file_path} already exists")
 
     except Exception as err:
         print(
