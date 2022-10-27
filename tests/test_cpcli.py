@@ -1,11 +1,12 @@
 import os
 import shutil
-import time
 from ..cpcli.cpcli import (_create_file_from_template, clean_file_name,
                            get_paths, _file_exists)
 
+
 class Base:
-  test_file_name_1 = "test_file_name_1"
+    test_file_name_1 = "test_file_name_1"
+
 
 class TestMisc(Base):
 
@@ -26,6 +27,9 @@ class TestMisc(Base):
         # create a temporary test file
         dir_path, file_path, _ = get_paths(self.test_file_name_1)
         os.mkdir(dir_path)
+
+        file = open(file_path, 'w')
+        file.close()
 
         exception_file_path = _create_file_from_template(self.test_file_name_1)
         assert exception_file_path is None

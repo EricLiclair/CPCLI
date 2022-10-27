@@ -23,8 +23,8 @@ def get_paths(file_name: str) -> List[str]:
 
 
 def _file_exists(file_name: str) -> bool:
-    sub_directories = list(os.walk('.'))[0][1]
-    return file_name in sub_directories
+    _, file_path, _ = get_paths(file_name=file_name)
+    return os.path.isfile(file_path)
 
 
 def _create_file_from_template(file_name: str) -> None:
@@ -33,7 +33,7 @@ def _create_file_from_template(file_name: str) -> None:
     try:
         if _file_exists(file_name=file_name):
           raise FileExistsError(
-              f"cpcli: {file_path} already exists")
+              f"{file_path} already exists")
         os.mkdir(dir_path)
         shutil.copy(template_file_path, file_path)
         print("file created succesfully")
@@ -64,9 +64,12 @@ def _delete_directory(file_name: str) -> None:
             shutil.rmtree(file_name)
             print(f"Deleted successfully")
         else:
-            raise Exception(
-                f"cpcli: cannot delete '{file_name}': No such directory exists"
+            raise FileNotFoundError(
+                f"{file_name} doesn't exist"
             )
+    except FileNotFoundError as err:
+        print(f"cpcli: Cannot delete file. {err}")
+
     except Exception as err:
         print(err)
 
