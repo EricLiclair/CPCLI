@@ -45,7 +45,7 @@ def _create_file_from_template(file_name: str) -> None:
 
     except Exception as err:
         print(
-            f"cpcli: error in creating file '{file_name}'. {err}")
+            f"cpcli: Error in creating file. {err}")
 
 
 def _run_executable_by_file_name(file_name: str) -> None:
@@ -68,10 +68,10 @@ def _delete_directory(file_name: str) -> None:
                 f"{file_name} doesn't exist"
             )
     except FileNotFoundError as err:
-        print(f"cpcli: Cannot delete file. {err}")
+        print(f"cpcli: Cannot delete. {err}")
 
     except Exception as err:
-        print(err)
+        print(f"cpcli: Cannot delete. {err}")
 
 
 def clean_file_name(file_name: str) -> str:
