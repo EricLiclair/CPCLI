@@ -1,7 +1,8 @@
 import os
 import shutil
-from ..cpcli.cpcli import (_create_file_from_template, clean_file_name,
-                           get_paths, _file_exists)
+
+from ..cpcli.cpcli import (_create_file_from_template, _delete_directory,
+                           _file_exists, clean_file_name, get_paths)
 
 
 class Base:
@@ -50,3 +51,12 @@ class TestCreate(Base):
 
         # delete file path
         shutil.rmtree(self.test_file_name_1)
+
+
+class TestDelete(Base):
+
+    def test_delete_directory(self):
+      file_path = _create_file_from_template(self.test_file_name_1)
+      _delete_directory(self.test_file_name_1)
+
+      assert os.path.isfile(file_path) == False
