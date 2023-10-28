@@ -8,7 +8,7 @@ from cpcli.cpcli import (_create_file_from_template, _delete_directory,
 class Base:
     test_file_name_1 = "test_file_name_1"
 
-class TestMisc(unittest.TestCase):
+class TestMisc(unittest.TestCase, Base):
 
     def test_get_paths(self):
         dir_path = os.path.join(self.test_file_name_1)
@@ -51,7 +51,7 @@ class TestDelete(Base):
         _delete_directory(self.test_file_name_1)
         self.assertFalse(os.path.isfile(file_path))
 
-class TestAdditional(unittest.TestCase):
+class TestAdditional(unittest.TestCase, Base):
 
     def test_create_file_from_template_with_existing_file(self):
         # Test creating a file when a file with the same name already exists
